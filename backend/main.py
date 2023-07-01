@@ -57,13 +57,13 @@ def predict_soh():
     soh = model.predict(df);
     print(soh)
 
-    if req["model"] == "ml":
+    if req["model"] == "bilstm":
         return jsonify({
-            'soh' : soh[0],
+            'soh' : float(soh[0][0]),
         })
     else:
         return jsonify({
-            'soh' : float(soh[0][0]),
+            'soh' : soh[0],
         })
 
 if __name__ == '__main__':
