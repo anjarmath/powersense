@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:intl/intl.dart';
+import 'package:powersense/model/backend_payload.dart';
 import 'package:powersense/model/payload_model.dart';
-import 'package:powersense/model/response_model.dart';
 
 part 'saved_model.freezed.dart';
 part 'saved_model.g.dart';
@@ -10,7 +10,7 @@ part 'saved_model.g.dart';
 class SavedModel with _$SavedModel {
   factory SavedModel({
     required String name,
-    required PayloadModel payload,
+    required BackendPayload payload,
     required String soh,
     required String time,
   }) = _SavedModel;
@@ -21,7 +21,10 @@ class SavedModel with _$SavedModel {
     DateTime now = DateTime.now();
     return SavedModel(
       name: 'New Prediction',
-      payload: PayloadModel.emptyModel(),
+      payload: BackendPayload(
+        payload: PayloadModel.emptyModel(),
+        model: 'ml',
+      ),
       soh: '0.0',
       time: DateFormat('yyyy-MM-dd').format(now),
     );

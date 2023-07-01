@@ -21,7 +21,7 @@ SavedModel _$SavedModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$SavedModel {
   String get name => throw _privateConstructorUsedError;
-  PayloadModel get payload => throw _privateConstructorUsedError;
+  BackendPayload get payload => throw _privateConstructorUsedError;
   String get soh => throw _privateConstructorUsedError;
   String get time => throw _privateConstructorUsedError;
 
@@ -37,9 +37,9 @@ abstract class $SavedModelCopyWith<$Res> {
           SavedModel value, $Res Function(SavedModel) then) =
       _$SavedModelCopyWithImpl<$Res, SavedModel>;
   @useResult
-  $Res call({String name, PayloadModel payload, String soh, String time});
+  $Res call({String name, BackendPayload payload, String soh, String time});
 
-  $PayloadModelCopyWith<$Res> get payload;
+  $BackendPayloadCopyWith<$Res> get payload;
 }
 
 /// @nodoc
@@ -68,7 +68,7 @@ class _$SavedModelCopyWithImpl<$Res, $Val extends SavedModel>
       payload: null == payload
           ? _value.payload
           : payload // ignore: cast_nullable_to_non_nullable
-              as PayloadModel,
+              as BackendPayload,
       soh: null == soh
           ? _value.soh
           : soh // ignore: cast_nullable_to_non_nullable
@@ -82,8 +82,8 @@ class _$SavedModelCopyWithImpl<$Res, $Val extends SavedModel>
 
   @override
   @pragma('vm:prefer-inline')
-  $PayloadModelCopyWith<$Res> get payload {
-    return $PayloadModelCopyWith<$Res>(_value.payload, (value) {
+  $BackendPayloadCopyWith<$Res> get payload {
+    return $BackendPayloadCopyWith<$Res>(_value.payload, (value) {
       return _then(_value.copyWith(payload: value) as $Val);
     });
   }
@@ -97,10 +97,10 @@ abstract class _$$_SavedModelCopyWith<$Res>
       __$$_SavedModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, PayloadModel payload, String soh, String time});
+  $Res call({String name, BackendPayload payload, String soh, String time});
 
   @override
-  $PayloadModelCopyWith<$Res> get payload;
+  $BackendPayloadCopyWith<$Res> get payload;
 }
 
 /// @nodoc
@@ -127,7 +127,7 @@ class __$$_SavedModelCopyWithImpl<$Res>
       payload: null == payload
           ? _value.payload
           : payload // ignore: cast_nullable_to_non_nullable
-              as PayloadModel,
+              as BackendPayload,
       soh: null == soh
           ? _value.soh
           : soh // ignore: cast_nullable_to_non_nullable
@@ -155,7 +155,7 @@ class _$_SavedModel implements _SavedModel {
   @override
   final String name;
   @override
-  final PayloadModel payload;
+  final BackendPayload payload;
   @override
   final String soh;
   @override
@@ -198,7 +198,7 @@ class _$_SavedModel implements _SavedModel {
 abstract class _SavedModel implements SavedModel {
   factory _SavedModel(
       {required final String name,
-      required final PayloadModel payload,
+      required final BackendPayload payload,
       required final String soh,
       required final String time}) = _$_SavedModel;
 
@@ -208,7 +208,7 @@ abstract class _SavedModel implements SavedModel {
   @override
   String get name;
   @override
-  PayloadModel get payload;
+  BackendPayload get payload;
   @override
   String get soh;
   @override

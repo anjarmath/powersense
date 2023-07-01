@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:powersense/model/backend_payload.dart';
 import 'package:powersense/model/payload_model.dart';
 import 'package:powersense/view/component/app_bar.dart';
 import 'package:powersense/view/component/drawer.dart';
@@ -33,8 +34,8 @@ class _EstimateSOHScreenState extends ConsumerState<EstimateSOHScreen> {
 
   bool isLoading = false;
 
-  String initialChoice = 'Random Forest (Direkomendasikan)';
-  final modelChoices = ['Random Forest (Direkomendasikan)'];
+  String choice = 'Random Forest (Direkomendasikan)';
+  final modelChoices = ['Random Forest (Direkomendasikan)', 'BiLSTM'];
 
   @override
   void initState() {
@@ -54,13 +55,18 @@ class _EstimateSOHScreenState extends ConsumerState<EstimateSOHScreen> {
         current_load: double.parse(currentLoadController.text),
         voltage_load: double.parse(voltageLoadController.text),
         time: double.parse(timeController.text));
-    ref.read(modelStateNotifierProvider.notifier).updatePayload(payload);
+    final models = ["ml", "dl"];
+    final model = models[modelChoices.indexOf(choice)];
 
-    final response = await predictionRepository.predict(payload);
+    final backendPayload = BackendPayload(payload: payload, model: model);
+    ref.read(modelStateNotifierProvider.notifier).updatePayload(backendPayload);
+
+    final response = await predictionRepository.predict(backendPayload);
     response.fold((l) {
-      // print(l);
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text("Oops! error: $l"),
+      ));
     }, (r) {
-      print(r.soh);
       ref
           .read(modelStateNotifierProvider.notifier)
           .updateSOH(r.soh.toStringAsFixed(4));
@@ -139,10 +145,10 @@ class _EstimateSOHScreenState extends ConsumerState<EstimateSOHScreen> {
                       PowerDropdown(
                         onChanged: (newValue) {
                           setState(() {
-                            initialChoice = newValue.toString();
+                            choice = newValue.toString();
                           });
                         },
-                        initialChoice: initialChoice,
+                        initialChoice: choice,
                         modelChoices: modelChoices,
                       ),
                     ],

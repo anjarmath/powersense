@@ -9,7 +9,7 @@ part of 'saved_model.dart';
 _$_SavedModel _$$_SavedModelFromJson(Map<String, dynamic> json) =>
     _$_SavedModel(
       name: json['name'] as String,
-      payload: PayloadModel.fromJson(json['payload'] as Map<String, dynamic>),
+      payload: BackendPayload.fromJson(json['payload'] as Map<String, dynamic>),
       soh: json['soh'] as String,
       time: json['time'] as String,
     );

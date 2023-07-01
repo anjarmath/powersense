@@ -2,5 +2,6 @@ gunicorn
 Flask
 numpy
 pandas
+pickle
 scikit_learn
 tensorflow_cpu

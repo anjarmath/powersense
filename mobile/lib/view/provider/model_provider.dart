@@ -1,7 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
-import 'package:powersense/model/payload_model.dart';
-import 'package:powersense/model/response_model.dart';
+import 'package:powersense/model/backend_payload.dart';
 import 'package:powersense/model/saved_model.dart';
 
 final modelStateNotifierProvider =
@@ -17,7 +16,7 @@ class ModelStateNotifier extends StateNotifier<SavedModel> {
     );
   }
 
-  void updatePayload(PayloadModel payload) {
+  void updatePayload(BackendPayload payload) {
     state = state.copyWith(
       payload: payload,
     );

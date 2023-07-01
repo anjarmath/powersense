@@ -44,34 +44,44 @@ class _DetailScreenState extends State<DetailScreen> {
                   ),
                   PowerListTile(
                     title: 'Capacity',
-                    trailingValue: widget.data.payload.capacity.toString(),
+                    trailingValue:
+                        widget.data.payload.payload.capacity.toString(),
                   ),
                   PowerListTile(
                     title: 'Voltage Measured',
                     trailingValue:
-                        widget.data.payload.voltage_measured.toString(),
+                        widget.data.payload.payload.voltage_measured.toString(),
                   ),
                   PowerListTile(
                     title: 'Current Measured',
                     trailingValue:
-                        widget.data.payload.current_measured.toString(),
+                        widget.data.payload.payload.current_measured.toString(),
                   ),
                   PowerListTile(
                     title: 'Temperature Measured',
-                    trailingValue:
-                        widget.data.payload.temperature_measured.toString(),
+                    trailingValue: widget
+                        .data.payload.payload.temperature_measured
+                        .toString(),
                   ),
                   PowerListTile(
                     title: 'Current Load',
-                    trailingValue: widget.data.payload.current_load.toString(),
+                    trailingValue:
+                        widget.data.payload.payload.current_load.toString(),
                   ),
                   PowerListTile(
                     title: 'Voltage Load',
-                    trailingValue: widget.data.payload.voltage_load.toString(),
+                    trailingValue:
+                        widget.data.payload.payload.voltage_load.toString(),
                   ),
                   PowerListTile(
                     title: 'Time',
-                    trailingValue: widget.data.payload.time.toString(),
+                    trailingValue: widget.data.payload.payload.time.toString(),
+                  ),
+                  PowerListTile(
+                    title: 'Jenis Model',
+                    trailingValue: widget.data.payload.model == "ml"
+                        ? "Random Forest"
+                        : "BiLSTM",
                   ),
                   Divider(
                     color: PowerColor.dark,
