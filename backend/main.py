@@ -1,11 +1,13 @@
 import os
 from flask import Flask, request, jsonify, url_for
+from flask_cors import CORS
 import tensorflow as tf
 import pandas as pd
 import pickle5 as pickle
 import json
 
 app = Flask(__name__)
+CORS(app=app)
 
 def load_model(model):
     if (model == 'svr'):
