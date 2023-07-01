@@ -3,7 +3,7 @@ from flask import Flask, request, jsonify, url_for
 import tensorflow as tf
 import numpy as np
 import pandas as pd
-import pickle
+import pickle5 as pickle
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import mean_squared_error
 from sklearn import metrics
@@ -13,12 +13,12 @@ app = Flask(__name__)
 
 def load_model(model):
     if (model == 'ml'):
-        # TODO: load soh model
         model = pickle.load(open('model_random_forest.pkl', 'rb'))
         return model
-    else:
+    elif (model == 'dl'):
         model = tf.keras.models.load_model('model_dl_bilstm.h5')
         return model
+    else:
         return
 
 @app.route('/', methods = ['GET'])

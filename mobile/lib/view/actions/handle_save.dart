@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:powersense/model/saved_model.dart';
+import 'package:powersense/view/component/input_field.dart';
 
 import '../component/button.dart';
 import '../util/colors.dart';
 import '../util/text_style.dart';
 
 void handleSaveAction(BuildContext context, SavedModel savedModel) {
+  TextEditingController saveController = TextEditingController();
   showDialog(
     context: context,
     builder: (_) {
@@ -22,11 +24,12 @@ void handleSaveAction(BuildContext context, SavedModel savedModel) {
             ),
           ),
         ),
-        content: const Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('Yakin ingin keluar?'),
-          ],
+        content: SizedBox(
+          height: MediaQuery.of(context).size.height * .3,
+          child: PowerTextField(
+            controller: saveController,
+            label: 'Judul',
+          ),
         ),
         actionsPadding:
             const EdgeInsets.symmetric(vertical: 24, horizontal: 20),
@@ -48,7 +51,7 @@ void handleSaveAction(BuildContext context, SavedModel savedModel) {
                 text: const Text('Simpan', style: btnStyle),
                 bgColor: PowerColor.error,
                 onTap: () {
-                  // SystemNavigator.pop();
+                  Navigator.of(context).pop();
                 },
               ),
             ],

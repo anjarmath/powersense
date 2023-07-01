@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:powersense/model/saved_model.dart';
+import 'package:powersense/view/actions/handle_save.dart';
 import 'package:powersense/view/component/app_bar.dart';
 import 'package:powersense/view/component/button.dart';
 import 'package:powersense/view/util/colors.dart';
@@ -97,7 +98,9 @@ class _DetailScreenState extends State<DetailScreen> {
             Padding(
               padding: const EdgeInsets.all(20),
               child: PowerButton(
-                  onTap: () {},
+                  onTap: () {
+                    handleSaveAction(context, widget.data);
+                  },
                   text: const Text(
                     'Simpan',
                     style: btnStyle,

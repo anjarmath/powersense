@@ -2,6 +2,6 @@ gunicorn
 Flask
 numpy
 pandas
-pickle-mixin
+pickle5
 scikit_learn
 tensorflow_cpu
