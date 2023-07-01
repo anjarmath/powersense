@@ -1,8 +1,7 @@
 name: powersense
 description: A new Flutter project.
 
-
-publish_to: "none" 
+publish_to: "none"
 version: 1.0.0+1
 
 environment:
@@ -19,6 +18,7 @@ dependencies:
   flutter_native_splash: ^2.2.19
   fpdart: ^0.6.0
   ionicons: ^0.2.2
+  icons_launcher: ^2.1.2
   flutter_dotenv: ^5.1.0
   flutter_secure_storage: ^8.0.0
   flutter_riverpod: ^2.3.6
@@ -42,7 +42,7 @@ flutter:
   assets:
     - assets/svg/icons/
     - .env
-  
+
   fonts:
     - family: Outfit
       fonts:
@@ -58,34 +58,9 @@ flutter:
           weight: 500
         - asset: assets/fonts/SF-Pro-Display-Bold.otf
           weight: 700
-  
+
 scripts:
   build: flutter pub run build_runner build --delete-conflicting-outputs
   watch: flutter pub run build_runner watch
   build_splash: dart run flutter_native_splash:create --path=./flutter_native_splash.yaml
-
-  
-  
-
-  
-  
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  make_icon: dart run icons_launcher:create --path ./icons_launcher.yaml

@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: PowerColor.primary,
+        fontFamily: 'SF-Pro-Display',
       ),
       home: const HomeScreen(),
     );

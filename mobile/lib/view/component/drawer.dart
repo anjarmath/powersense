@@ -5,6 +5,7 @@ import 'package:powersense/view/actions/handle_exit.dart';
 import 'package:powersense/view/screen/about.dart';
 import 'package:powersense/view/screen/estimate_soh.dart';
 import 'package:powersense/view/screen/home_screen.dart';
+import 'package:powersense/view/screen/list_saved_screen.dart';
 import 'package:powersense/view/util/colors.dart';
 
 class PowerListObject {
@@ -40,9 +41,9 @@ class PowerDrawer extends StatelessWidget {
         target: const EstimateSOHScreen(),
       ),
       PowerListObject(
-        icon: const Icon(Ionicons.reload_circle_outline),
-        text: 'Riwayat',
-        target: const EstimateSOHScreen(),
+        icon: const Icon(Ionicons.bookmark_outline),
+        text: 'Tersimpan',
+        target: const ListSavedScreen(),
       ),
       PowerListObject(
         icon: const Icon(Icons.info_outline_rounded),

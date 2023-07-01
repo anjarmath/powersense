@@ -22,6 +22,12 @@ class ModelStateNotifier extends StateNotifier<SavedModel> {
     );
   }
 
+  void updateModelName(String modelName) {
+    state = state.copyWith(
+      modelName: modelName,
+    );
+  }
+
   void updateSOH(String soh) {
     state = state.copyWith(
       soh: soh,

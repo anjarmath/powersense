@@ -1,8 +1,8 @@
 abstract class SecureStorage {
-  void saveToStorage(String key, String value);
+  Future<void> saveToStorage(String key, String value);
   Future<bool> checkFromStorage(String key);
   dynamic getFromStorage(String key);
   Future<Map<String, dynamic>> getAllValuesFromStorage();
-  void deleteFromStorage(String key);
-  void deleteAllValueFromStorage();
+  Future<void> deleteFromStorage(String key);
+  Future<void> deleteAllValueFromStorage();
 }

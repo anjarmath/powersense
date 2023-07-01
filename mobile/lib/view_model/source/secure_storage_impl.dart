@@ -20,7 +20,7 @@ class SecureStorageImpl extends SecureStorage {
   }
 
   @override
-  void saveToStorage(String key, String value) async {
+  Future<void> saveToStorage(String key, String value) async {
     try {
       return await storage.write(key: key, value: value);
     } catch (e) {
@@ -29,7 +29,7 @@ class SecureStorageImpl extends SecureStorage {
   }
 
   @override
-  void deleteAllValueFromStorage() async {
+  Future<void> deleteAllValueFromStorage() async {
     try {
       return await storage.deleteAll();
     } catch (e) {
@@ -38,7 +38,7 @@ class SecureStorageImpl extends SecureStorage {
   }
 
   @override
-  void deleteFromStorage(String key) async {
+  Future<void> deleteFromStorage(String key) async {
     try {
       return await storage.delete(key: key);
     } catch (e) {

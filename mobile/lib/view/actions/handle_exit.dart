@@ -11,14 +11,14 @@ void handleExitAction(BuildContext context) {
     builder: (_) {
       return AlertDialog(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(24),
+          borderRadius: BorderRadius.circular(20),
         ),
         title: Center(
           child: Text(
             'Perhatian',
             style: TextStyle(
               color: PowerColor.error,
-              fontSize: 48,
+              fontSize: 32,
             ),
           ),
         ),

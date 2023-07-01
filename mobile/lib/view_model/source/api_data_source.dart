@@ -37,7 +37,6 @@ class ApiDataSource {
 
       final response = await http.get(url, headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer $_apiKey',
       });
 
       return right(response);
