@@ -1,5 +1,6 @@
 gunicorn
 Flask
+flask-cors
 numpy
 pandas
 pickle5
