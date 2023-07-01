@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 def load_model(model):
     if (model == 'ml'):
-        model = pickle.load(open('model_random_forest.pkl', 'rb'))
+        model = pickle.load(open('./model_random_forest.pkl', 'rb'))
         return model
     elif (model == 'dl'):
         model = tf.keras.models.load_model('model_dl_bilstm.h5')
