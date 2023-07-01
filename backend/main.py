@@ -1,29 +1,47 @@
 import os
 from flask import Flask, request, jsonify, url_for
 import tensorflow as tf
-import numpy as np
 import pandas as pd
 import pickle5 as pickle
-from sklearn.preprocessing import MinMaxScaler
-from sklearn.metrics import mean_squared_error
-from sklearn import metrics
-import shutil
+import json
 
 app = Flask(__name__)
 
 def load_model(model):
-    if (model == 'ml'):
+    if (model == 'svr'):
+        model = pickle.load(open('./model_support_vector.pkl', 'rb'))
+        return model
+    if (model == 'rf'):
         model = pickle.load(open('./model_random_forest.pkl', 'rb'))
         return model
-    elif (model == 'dl'):
+    elif (model == 'bilstm'):
         model = tf.keras.models.load_model('model_dl_bilstm.h5')
         return model
     else:
         return
 
+list_model = [
+    {
+        "model" : "svr",
+        "desc" : "Support Vector Regressor (Direkomendasikan)"
+    },
+    {
+        "model" : "rf",
+        "desc" : "Random Forest"
+    },
+    {
+        "model" : "bilstm",
+        "desc" : "Bidirectional LSTM"
+    },
+]
+
 @app.route('/', methods = ['GET'])
 def detection_system():
     return 'Hello, this is backend'
+
+@app.route('/models', methods = ['GET'])
+def get_list_model():
+    return json.dumps(list_model)
 
 @app.route('/soh', methods = ['POST'])
 def predict_soh():
