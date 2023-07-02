@@ -41,6 +41,7 @@ class _EstimateSOHScreenState extends ConsumerState<EstimateSOHScreen> {
   TextEditingController timeController = TextEditingController(text: '0');
 
   bool isLoading = false;
+  bool isGettingModels = false;
 
   final modelNames = <String>[];
   final modelChoices = <String>[];
@@ -129,6 +130,9 @@ class _EstimateSOHScreenState extends ConsumerState<EstimateSOHScreen> {
   }
 
   void getListOfModel() async {
+    setState(() {
+      isGettingModels = true;
+    });
     final isOnline = await connectivityRepository.isConnected();
     if (isOnline) {
       final modelRes = await predictionRepository.getAllModels();
@@ -149,6 +153,9 @@ class _EstimateSOHScreenState extends ConsumerState<EstimateSOHScreen> {
     } else {
       handleNoConnection();
     }
+    setState(() {
+      isGettingModels = false;
+    });
   }
 
   @override
@@ -210,15 +217,23 @@ class _EstimateSOHScreenState extends ConsumerState<EstimateSOHScreen> {
                     color: PowerColor.dark,
                   ),
                   const SizedBox(height: 6),
-                  PowerDropdown(
-                    onChanged: (newValue) {
-                      setState(() {
-                        choice = newValue.toString();
-                      });
-                    },
-                    initialChoice: choice,
-                    modelChoices: modelChoices,
-                  ),
+                  isGettingModels
+                      ? const Column(
+                          children: [
+                            Text('Sedang mengambil katalog model...'),
+                            SizedBox(height: 4),
+                            LinearProgressIndicator(),
+                          ],
+                        )
+                      : PowerDropdown(
+                          onChanged: (newValue) {
+                            setState(() {
+                              choice = newValue.toString();
+                            });
+                          },
+                          initialChoice: choice,
+                          modelChoices: modelChoices,
+                        ),
                 ],
               ),
             ),
