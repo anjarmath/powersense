@@ -38,7 +38,7 @@ class _ListSavedScreenState extends ConsumerState<ListSavedScreen> {
                           builder: (_) => DetailScreen(data: datas[index])))
                       .then(
                     (value) {
-                      ref.refresh(savedHistoryProvider);
+                      final _ = ref.refresh(savedHistoryProvider);
                     },
                   );
                 },

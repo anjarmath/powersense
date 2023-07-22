@@ -6,11 +6,8 @@ import '../../core/external/env.dart';
 
 class ApiDataSource {
   final String? _baseUrl;
-  final String? _apiKey;
 
-  ApiDataSource()
-      : _baseUrl = EnvironmentConfig.backendBaseUrl,
-        _apiKey = EnvironmentConfig.apiKey;
+  ApiDataSource() : _baseUrl = EnvironmentConfig.backendBaseUrl;
 
   Future<Either<String, http.Response>> sendPost(
       String path, String body) async {
