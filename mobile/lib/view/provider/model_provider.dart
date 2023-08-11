@@ -37,7 +37,7 @@ class ModelStateNotifier extends StateNotifier<SavedModel> {
   void updateTime() {
     DateTime now = DateTime.now();
     state = state.copyWith(
-      time: DateFormat('yyyy-MM-dd').format(now),
+      time: DateFormat('dd-MM-yyyy HH:mm:ss').format(now),
     );
   }
 }

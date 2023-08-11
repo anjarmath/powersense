@@ -14,7 +14,6 @@ class SecureStorageImpl extends SecureStorage {
     try {
       return await storage.containsKey(key: key);
     } catch (e) {
-      print(e);
       return false;
     }
   }
@@ -24,7 +23,7 @@ class SecureStorageImpl extends SecureStorage {
     try {
       return await storage.write(key: key, value: value);
     } catch (e) {
-      print(e);
+      throw Exception(e);
     }
   }
 
@@ -33,7 +32,7 @@ class SecureStorageImpl extends SecureStorage {
     try {
       return await storage.deleteAll();
     } catch (e) {
-      print(e);
+      throw Exception(e);
     }
   }
 
@@ -42,7 +41,7 @@ class SecureStorageImpl extends SecureStorage {
     try {
       return await storage.delete(key: key);
     } catch (e) {
-      print(e);
+      throw Exception(e);
     }
   }
 
@@ -51,8 +50,7 @@ class SecureStorageImpl extends SecureStorage {
     try {
       return await storage.readAll();
     } catch (e) {
-      print(e);
-      return Map();
+      return <String, dynamic>{};
     }
   }
 }

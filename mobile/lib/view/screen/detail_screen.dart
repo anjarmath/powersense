@@ -292,11 +292,17 @@ class PowerListTile extends StatelessWidget {
     return Container(
       color: isMain ? PowerColor.primary.withAlpha(100) : Colors.transparent,
       child: ListTile(
-        title: Text(title),
-        trailing: Text(
-          trailingValue,
-          style: const TextStyle(
-            fontWeight: FontWeight.bold,
+        title: SizedBox(
+          width: MediaQuery.of(context).size.width * .5,
+          child: Text(title),
+        ),
+        trailing: SizedBox(
+          width: MediaQuery.of(context).size.width * .4,
+          child: Text(
+            trailingValue,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
       ),
