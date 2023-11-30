@@ -12,7 +12,3 @@ This App is aims to help tracking State of Health (SoH) of a Li-Ion Battery with
 |App Design|![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)|
 |App Development|![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)|
 |Backend|	![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white) ![AWS](https://img.shields.io/badge/Amazon_AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)|
-### Official Paper
-[![DOI: 10.1109/ICICoS56336.2022.9930532](https://zenodo.org/badge/DOI/10.1109/ICICoS56336.2022.9930532.svg)](https://doi.org/10.1109/ICICoS56336.2022.9930532)
-[![Citation Badge](https://api.juleskreuer.eu/citation-badge.php?doi=10.1109/ICICoS56336.2022.9930532)](https://juleskreuer.eu/projekte/citation-badge/)
-[🔗 Acces the paper](https://ieeexplore.ieee.org/document/9930532)
